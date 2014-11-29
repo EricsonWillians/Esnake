@@ -1,4 +1,4 @@
-Esnake is an open-source exotic snake-game developed in Python with Ergame, a custom cluster-fuck of code that the author dared to call an Engine (Made with Pygame). Everything in the game is mine except for the ttf font made by unknown hands, the random space image, Pygame and Python (Obviously). I've composed the track of it, and there's a readme about it in the proper folder.
+Esnake is an open-source exotic snake-game developed in Python with Ergame, a custom cluster-fuck of code that the author dared to call an Engine (Made with Pygame). Everything in the game is mine except for the otf font made by unknown hands, the random space image, Pygame and Python (Obviously). I've composed the track of it, and there's a readme about it in the proper folder.
 
 If you enjoy it, I'd really enjoy to read some feedback on my email: ericsonwrp@gmail.com (Or just send me a message on github.. Ericson Willians).
 
