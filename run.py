@@ -60,6 +60,7 @@ if __name__ == "__main__":
 		r["Options File"].load(DEFAULT_OPTIONS_PATH)
 		r["Screen Width"] = int(r["Options File"]["Resolution"].split('x')[0])
 		r["Screen Height"] = int(r["Options File"]["Resolution"].split('x')[1])
+		r["Fullscreen"] = r["Options File"]["Fullscreen"]
 		if r["Options File"]["Font Quality"] == "Very Low":
 			r["Font Quality"] = 8
 		elif r["Options File"]["Font Quality"] == "Low":
