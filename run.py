@@ -788,7 +788,7 @@ if __name__ == "__main__":
 				r["Food"]["Rect"]["y"] = r["Grid"].get_column_pos(randrange(0, int(r["Screen Height"]/r["Element Size"])))
 				r["Score"] += 1
 				r["Background"]["scroll_speed"] += r["Background Scrolling Speed Increment"]
-		elif r["Snake"]["Present Direction"]() == WEST and not r["Snake"]["Digestion Part"] >= len(r["Snake"]["Length"]):
+		elif r["Snake"]["Present Direction"] == WEST and not r["Snake"]["Digestion Part"] >= len(r["Snake"]["Length"]):
 			r["Snake"]["Next"] = [r["Snake"]["Next"][0]-1, r["Snake"]["Next"][1]]
 			if col(r["Snake"]["Rects"][r["Snake"]["Digestion Part"]], r["Food"]["Rect"]):
 				r["Snake"]["Length"].append((r["Snake"]["Length"][len(r["Snake"]["Length"])-1][0]-1, r["Snake"]["Length"][len(r["Snake"]["Length"])-1][1]))
@@ -796,7 +796,7 @@ if __name__ == "__main__":
 				r["Food"]["Rect"]["y"] = r["Grid"].get_column_pos(randrange(0, int(r["Screen Height"]/r["Element Size"])))
 				r["Score"] += 1
 				r["Background"]["scroll_speed"] += r["Background Scrolling Speed Increment"]
-		elif r["Snake"]["Present Direction"]() == EAST and not r["Snake"]["Digestion Part"] >= len(r["Snake"]["Length"]):
+		elif r["Snake"]["Present Direction"] == EAST and not r["Snake"]["Digestion Part"] >= len(r["Snake"]["Length"]):
 			r["Snake"]["Next"] = [r["Snake"]["Next"][0]+1, r["Snake"]["Next"][1]]
 			if col(r["Snake"]["Rects"][r["Snake"]["Digestion Part"]], r["Food"]["Rect"]):
 				r["Snake"]["Length"].append((r["Snake"]["Length"][len(r["Snake"]["Length"])-1][0]+1, r["Snake"]["Length"][len(r["Snake"]["Length"])-1][1]))
