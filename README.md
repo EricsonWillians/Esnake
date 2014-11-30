@@ -1,7 +1,14 @@
-Ergame
-======
-The encapsulated and object-oriented solution for Game Development with Python.
+Esnake is an open-source exotic snake-game developed in Python with Ergame, a custom cluster-fuck of code that the author dared to call an Engine (Made with Pygame). Everything in the game is mine except for the ttf font made by unknown hands, the random space image, Pygame and Python (Obviously). I've composed the track of it, and there's a readme about it in the proper folder.
 
-* Ergame is an open-source object-oriented engine for game development with [Python 2.7](https://www.python.org/download/releases/2.7/) and [Pygame](http://www.pygame.org/news.html) (You only need to have these installed).
+If you enjoy it, I'd really enjoy to read some feedback on my email: ericsonwrp@gmail.com (Or just send me a message on github.. Ericson Willians).
 
-Ergame provides classes and functions that make game development more objective and easy, and it also provides its own graphical user interface: Ergui. Check out the WIKI. The engine will be updated constantly, so, keep an eye out and watch it.
+Concerning the code, be aware that the ONLY ACTUAL FILE of the game is "run.py", for the rest is my engine (So, you'll never understand it without reading the engine, since I've changed the standard "pygame structure"... considerably).
+
+Concerning CRASHES:
+
+If you've messed with the options too creatively, just erase the options.edt file (The game will detect the non-optionness and will create a default one (The same applies to the highscore file)).
+In case of any other obscure crash while eating the food in corners in obscure situations, just pray.
+
+Thank you for playing it,
+
+Ericson Willians.
