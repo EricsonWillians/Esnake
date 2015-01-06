@@ -30,7 +30,8 @@ TWITTER: https://twitter.com/poisonewein
 """
 
 import os
-import commands
+if os.name == "posix":
+	import commands
 import ctypes
 import pygame
 from operator import mul
@@ -135,14 +136,14 @@ def push_char(k):
 	if EwData.app is not None:
 		for e in EwData.app.events:
 			if e.type == pygame.KEYDOWN:
-				if isinstance(k, basestring):
+				if isinstance(k, str):
 					if len(k) == 1:
 						if k == str(e.unicode):
 							return True
 					else:
 						raise UnknownPatternError('"char"')
 				else:
-					raise NotMemberOfError("basestring")
+					raise NotMemberOfError("str")
 
 def push_key(k):
 	"""ITERATION OVER EVENTS: Returns True WHEN the given pygame-key is pressed. """
@@ -172,7 +173,7 @@ def press_key(k):
 def print_keys():
 	for e in EwData.app.events:
 		if e.type == pygame.KEYDOWN:
-			print	str(e.key) +  " (" +pygame.key.name(e.key) + ")"
+			print(str(e.key) +  " (" +pygame.key.name(e.key) + ")")
 
 def release_key(k):
 	""" ITERATION OVER EVENTS: Returns True WHEN the given pygame-key is released. """
@@ -1651,7 +1652,7 @@ def check_file(string_path):
 		return False
 
 def erpath(path, filename):
-	if isinstance(path, basestring) and isinstance(filename, basestring):
+	if isinstance(path, str) and isinstance(filename, str):
 			full_path = os.path.join(path, filename)
 			return full_path
 	else:

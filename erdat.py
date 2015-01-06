@@ -46,6 +46,9 @@ DEFAULT_HIGHSCORE_PATH = "highscore.edt"
 # CONSTANTS
 # ======================================================== #
 
+ON = True
+OFF = False
+
 # Sequence Constants:
 # -------------------------------------------------------------------------------------------------------
 
@@ -107,9 +110,9 @@ ARROWS = 0
 WASD = 1
 BOTH = 2
 
-LETTERS = range(97, 122 + LAST_INCLUDED)
-UPPER_NUMBERS = range(48, 57 + LAST_INCLUDED)
-KP_NUMBERS = range(256, 265 + LAST_INCLUDED)
+LETTERS = list(range(97, 122 + LAST_INCLUDED))
+UPPER_NUMBERS = list(range(48, 57 + LAST_INCLUDED))
+KP_NUMBERS = list(range(256, 265 + LAST_INCLUDED))
 NUMBERS = UPPER_NUMBERS + KP_NUMBERS
 
 MOUSE_LEFT = 0

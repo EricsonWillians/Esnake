@@ -95,7 +95,7 @@ if __name__ == "__main__":
 	r["Scenes"] = EwData()
 	r["Main Menu"] = EwCentralizedSimpleTextMenu(192, 64, r["FONT"], r["Font Color"], ["Start Game", "Options", "Highscore", "Exit Game"], 255, r["Font Quality"])
 	r["Modes Menu"] = EwCentralizedSimpleTextMenu(192, 64, r["FONT"], r["Font Color"], ["Classic", "Mazy", "Field", "Lengthy"], 255, r["Font Quality"])
-	r["Mazy Menu"] = EwCentralizedSimpleTextMenu(r["Screen Width"]/2, 64, r["FONT"], r["Font Color"], ["Float Randrange", "Float Threshold", "Wall Length"], 255, r["Font Quality"])
+	r["Mazy Menu"] = EwCentralizedSimpleTextMenu(r["Screen Width"]//2, 64, r["FONT"], r["Font Color"], ["Float Randrange", "Float Threshold", "Wall Length"], 255, r["Font Quality"])
 	r["Digestion Menu"] = EwCentralizedSimpleTextMenu(192, 64, r["FONT"], r["Font Color"], ["Normal", "Random", "Spawn"], 255, r["Font Quality"])
 	r["Options Menu"] = EwCentralizedSimpleTextMenu(192, 32, r["FONT"], r["Font Color"], ["Resolution", "Font Quality", "Fullscreen", "Game Speed", "Game Size", "Music Volume", "Score Counter", "Game Grid", "", "", "", "Return"], 255, r["Font Quality"])
 	r["Game Mode"] = None
@@ -305,7 +305,7 @@ if __name__ == "__main__":
 
 	if check_file(DEFAULT_OPTIONS_PATH):
 		r["Options File"].load(DEFAULT_OPTIONS_PATH)
-		print "The following options were loaded:"
+		print("The following options were loaded:")
 		[sys.stdout.write(str(opt[0]) + ": " + str(opt[1]) + "\n") for opt in r["Options File"].data.items()]
 		r["Resolution Value Chooser"].set_selected(r["Options File"]["Resolution"])
 		r["Font Quality Value Chooser"].set_selected(r["Options File"]["Font Quality"])
@@ -402,49 +402,49 @@ if __name__ == "__main__":
 				if r["Digestion"] == 0:
 					if r["Score"] > r["Highscore File"]["Highscore"]["Classic"]["Normal Digestion"]:
 						r["Highscore"]["Classic"]["Normal Digestion"] = r["Score"]
-						print ">> New highscore saved for classic game mode with normal digestion: " + str(r["Score"]) + "."
+						print(">> New highscore saved for classic game mode with normal digestion: " + str(r["Score"]) + ".")
 				elif r["Digestion"] == 1:
 					if r["Score"] > r["Highscore File"]["Highscore"]["Classic"]["Random Digestion"]:
 						r["Highscore"]["Classic"]["Random Digestion"] = r["Score"]
-						print ">> New highscore saved for classic game mode with random digestion: " + str(r["Score"]) + "."
+						print(">> New highscore saved for classic game mode with random digestion: " + str(r["Score"]) + ".")
 			elif r["Game Mode"] == "Mazy":
 				if r["Digestion"] == 0:
 					if r["Score"] > r["Highscore File"]["Highscore"]["Mazy"]["Normal Digestion"]["Score"]:
 						r["Highscore"]["Mazy"]["Normal Digestion"]["Score"] = r["Score"]
 						r["Highscore"]["Mazy"]["Normal Digestion"]["Maze CFG"] = [r["Mazy Float Randrange"], r["Mazy Float Threshold"], r["Mazy Wall Length"]]
-						print ">> New highscore saved for mazy game mode with normal digestion: " + str(r["Score"]) + "."
+						print(">> New highscore saved for mazy game mode with normal digestion: " + str(r["Score"]) + ".")
 				elif r["Digestion"] == 1:
 					if r["Score"] > r["Highscore File"]["Highscore"]["Mazy"]["Random Digestion"]["Score"]:
 						r["Highscore"]["Mazy"]["Random Digestion"]["Score"] = r["Score"]
 						r["Highscore"]["Mazy"]["Random Digestion"]["Maze CFG"] = [r["Mazy Float Randrange"], r["Mazy Float Threshold"], r["Mazy Wall Length"]]
-						print ">> New highscore saved for mazy game mode with normal digestion: " + str(r["Score"]) + "."
+						print(">> New highscore saved for mazy game mode with normal digestion: " + str(r["Score"]) + ".")
 			elif r["Game Mode"] == "Field":
 				if r["Digestion"] == 0:
 					if r["Score"] > r["Highscore File"]["Highscore"]["Field"]["Normal Digestion"]["Food Score"]:
 						r["Highscore"]["Field"]["Normal Digestion"]["Food Score"] = r["Score"]
-						print ">> New food highscore saved for field game mode with normal digestion: " + str(r["Score"]) + "."
+						print(">> New food highscore saved for field game mode with normal digestion: " + str(r["Score"]) + ".")
 					if r["Field Score"] > r["Highscore File"]["Highscore"]["Field"]["Normal Digestion"]["Field Score"]:
 						r["Highscore"]["Field"]["Normal Digestion"]["Field Score"] = r["Field Score"]
-						print "New field highscore saved for field game mode with normal digestion: " + str(r["Field Score"]) + "."
+						print("New field highscore saved for field game mode with normal digestion: " + str(r["Field Score"]) + ".")
 					if r["Field Levels Cleared"] > r["Highscore File"]["Highscore"]["Field"]["Normal Digestion"]["Field Levels Cleared"]:
 						r["Highscore"]["Field"]["Normal Digestion"]["Field Levels Cleared"] = r["Field Levels Cleared"]
-						print ">> New highscore number saved for the number of levels cleared in the field game mode with normal digestion: " + str(r["Field Score"]) + "."
+						print(">> New highscore number saved for the number of levels cleared in the field game mode with normal digestion: " + str(r["Field Score"]) + ".")
 				elif r["Digestion"] == 1:
 					if r["Score"] > r["Highscore File"]["Highscore"]["Field"]["Random Digestion"]["Food Score"]:
 						r["Highscore"]["Field"]["Random Digestion"]["Food Score"] = r["Score"]
-						print ">> New random digestion food highscore saved for field game mode: " + str(r["Score"]) + "."
+						print(">> New random digestion food highscore saved for field game mode: " + str(r["Score"]) + ".")
 					if r["Field Score"] > r["Highscore File"]["Highscore"]["Field"]["Random Digestion"]["Field Score"]:
 						r["Highscore"]["Field"]["Random Digestion"]["Field Score"] = r["Field Score"]
-						print ">> New random digestion field highscore saved for field game mode: " + str(r["Field Score"]) + "."
+						print(">> New random digestion field highscore saved for field game mode: " + str(r["Field Score"]) + ".")
 					if r["Field Levels Cleared"] > r["Highscore File"]["Highscore"]["Field"]["Random Digestion"]["Field Levels Cleared"]:
 						r["Highscore"]["Field"]["Random Digestion"]["Field Levels Cleared"] = r["Field Levels Cleared"]
-						print ">> New highscore number saved for the number of levels cleared in the field game mode with random digestion: " + str(r["Field Score"]) + "."
+						print(">> New highscore number saved for the number of levels cleared in the field game mode with random digestion: " + str(r["Field Score"]) + ".")
 			elif r["Game Mode"] == "Lengthy":
 				if r["Lengthy Score"] > r["Highscore File"]["Highscore"]["Lengthy"]["Score"]:
 					r["Highscore File"]["Highscore"]["Lengthy"]["Score"] = r["Lengthy Score"]
 					r["Highscore File"]["Highscore"]["Lengthy"]["Locomotion Score"] = r["Locomotion Score"]
 					r["Highscore File"]["Highscore"]["Lengthy"]["Maze CFG"] = [r["Mazy Float Randrange"], r["Mazy Float Threshold"], r["Mazy Wall Length"]]
-					print ">> New highscore saved for lengthy game mode: " + str(r["Lengthy Score"]) + "."
+					print(">> New highscore saved for lengthy game mode: " + str(r["Lengthy Score"]) + ".")
 			r["Highscore File"]["Highscore"] = r["Highscore"]
 			r["Highscore File"].write(DEFAULT_HIGHSCORE_PATH)
 		else:
@@ -452,55 +452,55 @@ if __name__ == "__main__":
 				if r["Digestion"] == 0:
 					if r["Score"] > r["Highscore"]["Classic"]["Normal Digestion"]:
 						r["Highscore"]["Classic"]["Normal Digestion"] = r["Score"]
-						print ">> New normal digestion highscore saved for classic game mode: " + str(r["Score"]) + "."
+						print(">> New normal digestion highscore saved for classic game mode: " + str(r["Score"]) + ".")
 				elif r["Digestion"] == 1:
 					if r["Score"] > r["Highscore"]["Classic"]["Random Digestion"]:
 						r["Highscore"]["Classic"]["Random Digestion"] = r["Score"]
-						print ">> New random digestion highscore saved for classic game mode: " + str(r["Score"]) + "."
+						print(">> New random digestion highscore saved for classic game mode: " + str(r["Score"]) + ".")
 			elif r["Game Mode"] == "Mazy":
 				if r["Digestion"] == 0:
 					if r["Score"] > r["Highscore"]["Mazy"]["Normal Digestion"]["Score"]:
 						r["Highscore"]["Mazy"]["Normal Digestion"]["Score"] = r["Score"]
 						r["Highscore"]["Mazy"]["Normal Digestion"]["Maze CFG"] = [r["Mazy Float Randrange"], r["Mazy Float Threshold"], r["Mazy Wall Length"]]
-						print ">> New highscore saved for mazy game mode with normal digestion: " + str(r["Score"]) + "."
+						print(">> New highscore saved for mazy game mode with normal digestion: " + str(r["Score"]) + ".")
 				elif r["Digestion"] == 1:
 					if r["Score"] > r["Highscore"]["Mazy"]["Random Digestion"]["Score"]:
 						r["Highscore"]["Mazy"]["Random Digestion"]["Score"] = r["Score"]
 						r["Highscore"]["Mazy"]["Random Digestion"]["Maze CFG"] = [r["Mazy Float Randrange"], r["Mazy Float Threshold"], r["Mazy Wall Length"]]
-						print ">> New highscore saved for mazy game mode with normal digestion: " + str(r["Score"]) + "."
+						print(">> New highscore saved for mazy game mode with normal digestion: " + str(r["Score"]) + ".")
 			elif r["Game Mode"] == "Field":
 				if r["Digestion"] == 0:
 					if r["Score"] > r["Highscore"]["Field"]["Normal Digestion"]["Food Score"]:
 						r["Highscore"]["Field"]["Normal Digestion"]["Food Score"] = r["Score"]
-						print ">> New normal digestion food highscore saved for field game mode: " + str(r["Score"]) + "."
+						print(">> New normal digestion food highscore saved for field game mode: " + str(r["Score"]) + ".")
 					if r["Field Score"] > r["Highscore"]["Field"]["Normal Digestion"]["Field Score"]:
 						r["Highscore"]["Field"]["Normal Digestion"]["Field Score"] = r["Field Score"]
-						print ">> New normal digestion field highscore saved for field game mode: " + str(r["Field Score"]) + "."
+						print(">> New normal digestion field highscore saved for field game mode: " + str(r["Field Score"]) + ".")
 					if r["Field Levels Cleared"] > r["Highscore"]["Field"]["Normal Digestion"]["Field Levels Cleared"]:
 						r["Highscore"]["Field"]["Normal Digestion"]["Field Levels Cleared"] = r["Field Levels Cleared"]
-						print ">> New highscore number saved for the number of levels cleared in the field game mode with normal digestion: " + str(r["Field Score"]) + "."
+						print(">> New highscore number saved for the number of levels cleared in the field game mode with normal digestion: " + str(r["Field Score"]) + ".")
 				elif r["Digestion"] == 1:
 					if r["Score"] > r["Highscore"]["Field"]["Random Digestion"]["Food Score"]:
 						r["Highscore"]["Field"]["Random Digestion"]["Food Score"] = r["Score"]
-						print ">> New random digestion food highscore saved for field game mode: " + str(r["Score"]) + "."
+						print(">> New random digestion food highscore saved for field game mode: " + str(r["Score"]) + ".")
 					if r["Field Score"] > r["Highscore"]["Field"]["Random Digestion"]["Field Score"]:
 						r["Highscore"]["Field"]["Random Digestion"]["Field Score"] = r["Field Score"]
-						print ">> New random digestion field highscore saved for field game mode: " + str(r["Field Score"]) + "."
+						print(">> New random digestion field highscore saved for field game mode: " + str(r["Field Score"]) + ".")
 					if r["Field Levels Cleared"] > r["Highscore"]["Field"]["Random Digestion"]["Field Levels Cleared"]:
 						r["Highscore"]["Field"]["Random Digestion"]["Field Levels Cleared"] = r["Field Levels Cleared"]
-						print ">> New highscore number saved for the number of levels cleared in the field game mode with random digestion: " + str(r["Field Score"]) + "."
+						print(">> New highscore number saved for the number of levels cleared in the field game mode with random digestion: " + str(r["Field Score"]) + ".")
 			elif r["Game Mode"] == "Lengthy":
 				if r["Lengthy Score"] > r["Highscore"]["Lengthy"]["Score"]:
 					r["Highscore"]["Lengthy"]["Score"] = r["Lengthy Score"]
 					r["Highscore"]["Lengthy"]["Locomotion Score"] = r["Locomotion Score"]
 					r["Highscore"]["Lengthy"]["Maze CFG"] = [r["Mazy Float Randrange"], r["Mazy Float Threshold"], r["Mazy Wall Length"]]
-					print ">> New highscore saved for lengthy game mode: " + str(r["Lengthy Score"]) + "."
+					print(">> New highscore saved for lengthy game mode: " + str(r["Lengthy Score"]) + ".")
 			r["Highscore File"]["Highscore"] = r["Highscore"]
 			r["Highscore File"].write(DEFAULT_HIGHSCORE_PATH)
 		
 		update_highscore_list()
 		
-	r["Highscore Text Box"] = EwTextBox(64, 64, ''.join(r["Highscore List"]), r["Screen Width"]/48, r["FONT"], r["Font Color"], 255, False, subrgb(r["Font Color"], (0, 125, 0)), BARELY_VISIBLE, 6)
+	r["Highscore Text Box"] = EwTextBox(64, 64, ''.join(r["Highscore List"]), r["Screen Width"]//48, r["FONT"], r["Font Color"], 255, False, subrgb(r["Font Color"], (0, 125, 0)), BARELY_VISIBLE, 6)
 
 	def default():
 		save_highscore()
@@ -517,7 +517,7 @@ if __name__ == "__main__":
 				snake_pos = return_random_gridpos_while_watching_for_maze_wall_presence()
 				r["Snake"]["Length"] = [[snake_pos[0], snake_pos[1]], [snake_pos[0], snake_pos[1]]]
 			except TypeError:
-				print "Obscure snake-maze-related error captured."
+				print("Obscure snake-maze-related error captured.")
 				default()
 		elif r["Game Mode"] == "Lengthy":
 			r["Maze"] = EwSafeRectWallMaze(0, 0, r["Screen Width"], r["Screen Height"], r["Element Size"], r["Element Size"], r["Mazy Float Randrange"], r["Mazy Float Threshold"], r["Mazy Wall Length"], r["Mazy Safety Factor"], RED, 75, r["Element Thickness"])
@@ -528,7 +528,7 @@ if __name__ == "__main__":
 				snake_pos = return_random_gridpos_while_watching_for_maze_wall_presence()
 				r["Snake"]["Length"] = [[snake_pos[0], snake_pos[1]], [snake_pos[0], snake_pos[1]]]
 			except TypeError:
-				print "Obscure snake-maze-related error captured."
+				print("Obscure snake-maze-related error captured.")
 				default()
 		else:
 			r["Snake"]["Length"] =[[int((r["Screen Width"]/r["Element Size"])/2), int((r["Screen Width"]/r["Element Size"])/2)],[int((r["Screen Width"]/r["Element Size"])/2), int((r["Screen Width"]/r["Element Size"])/2)]]
@@ -547,9 +547,9 @@ if __name__ == "__main__":
 			default()
 			r["Error Counter"] += 1
 			if r["Error Counter"] == 1:
-				print "Obscure recursive deletion error captured 1 time."
+				print("Obscure recursive deletion error captured 1 time.")
 			else:
-				print "Obscure recursive deletion error captured {} times.".format(r["Error Counter"])
+				print("Obscure recursive deletion error captured {} times.".format(r["Error Counter"]))
 				r["End Message"] = "This error occurs in the random digestion mode for some very obscure reason. The whole snake is a python list, and the digestion part is just a random index of this list considering the snake's length. For the snake to work, it uses pop() and therefore it removes constantly the last element of the list, and considering boundering colisions (offset list movement), and the fact that this index is random in real-time, the snake eventually deletes itself recursively and cries desperately to summon an IndexError until it gets tired of trying giving my almighty try-catch blocks."
 		
 		r["Snake"]["Rects"] = [EwRect(r["Grid"].get_row_pos(r["Snake"]["Length"][sp][0]),
@@ -568,9 +568,9 @@ if __name__ == "__main__":
 					default()
 					r["Error Counter"] += 1
 					if r["Error Counter"] == 1:
-						print "Obscure recursive deletion error captured 1 time."
+						print("Obscure recursive deletion error captured 1 time.")
 					else:
-						print "Obscure recursive deletion error captured {} times.".format(r["Error Counter"])
+						print("Obscure recursive deletion error captured {} times.".format(r["Error Counter"]))
 						r["End Message"] = "This error occurs in the random digestion mode for some very obscure reason. The whole snake is a python list, and the digestion part is just a random index of this list considering the snake's length. For the snake to work, it uses pop() and therefore it removes constantly the last element of the list, and considering boundering colisions (offset list movement), and the fact that this index is random in real-time, the snake eventually deletes itself recursively and cries desperately to summon an IndexError until it gets tired of trying giving my almighty try-catch blocks."
 					
 		if len(r["Snake"]["Length"]) > 0:
@@ -643,9 +643,9 @@ if __name__ == "__main__":
 			default()
 			r["Error Counter"] += 1
 			if r["Error Counter"] == 1:
-				print "Obscure recursive deletion error captured 1 time."
+				print("Obscure recursive deletion error captured 1 time.")
 			else:
-				print "Obscure recursive deletion error captured {} times.".format(r["Error Counter"])
+				print("Obscure recursive deletion error captured {} times.".format(r["Error Counter"]))
 				r["End Message"] = "This error occurs in the random digestion mode for some very obscure reason. The whole snake is a python list, and the digestion part is just a random index of this list considering the snake's length. For the snake to work, it uses pop() and therefore it removes constantly the last element of the list, and considering boundering colisions (offset list movement), and the fact that this index is random in real-time, the snake eventually deletes itself recursively and cries desperately to summon an IndexError until it gets tired of trying giving my almighty try-catch blocks."
 		
 		r["Snake"]["Rects"] = [EwRect(r["Grid"].get_row_pos(r["Snake"]["Length"][sp][0]),
@@ -664,9 +664,9 @@ if __name__ == "__main__":
 					default()
 					r["Error Counter"] += 1
 					if r["Error Counter"] == 1:
-						print "Obscure recursive deletion error captured 1 time."
+						print("Obscure recursive deletion error captured 1 time.")
 					else:
-						print "Obscure recursive deletion error captured {} times.".format(r["Error Counter"])
+						print("Obscure recursive deletion error captured {} times.".format(r["Error Counter"]))
 						r["End Message"] = "This error occurs in the random digestion mode for some very obscure reason. The whole snake is a python list, and the digestion part is just a random index of this list considering the snake's length. For the snake to work, it uses pop() and therefore it removes constantly the last element of the list, and considering boundering colisions (offset list movement), and the fact that this index is random in real-time, the snake eventually deletes itself recursively and cries desperately to summon an IndexError until it gets tired of trying giving my almighty try-catch blocks."
 		
 		if len(r["Snake"]["Length"]) > 0:
@@ -748,9 +748,9 @@ if __name__ == "__main__":
 			default()
 			r["Error Counter"] += 1
 			if r["Error Counter"] == 1:
-				print "Obscure recursive deletion error captured 1 time."
+				print("Obscure recursive deletion error captured 1 time.")
 			else:
-				print "Obscure recursive deletion error captured {} times.".format(r["Error Counter"])
+				print("Obscure recursive deletion error captured {} times.".format(r["Error Counter"]))
 				r["End Message"] = "This error occurs in the random digestion mode for some very obscure reason. The whole snake is a python list, and the digestion part is just a random index of this list considering the snake's length. For the snake to work, it uses pop() and therefore it removes constantly the last element of the list, and considering boundering colisions (offset list movement), and the fact that this index is random in real-time, the snake eventually deletes itself recursively and cries desperately to summon an IndexError until it gets tired of trying giving my almighty try-catch blocks."
 		
 		r["Snake"]["Rects"] = [EwRect(r["Grid"].get_row_pos(r["Snake"]["Length"][sp][0]),
@@ -769,9 +769,9 @@ if __name__ == "__main__":
 					default()
 					r["Error Counter"] += 1
 					if r["Error Counter"] == 1:
-						print "Obscure recursive deletion error captured 1 time."
+						print("Obscure recursive deletion error captured 1 time.")
 					else:
-						print "Obscure recursive deletion error captured {} times.".format(r["Error Counter"])
+						print("Obscure recursive deletion error captured {} times.".format(r["Error Counter"]))
 						r["End Message"] = "This error occurs in the random digestion mode for some very obscure reason. The whole snake is a python list, and the digestion part is just a random index of this list considering the snake's length. For the snake to work, it uses pop() and therefore it removes constantly the last element of the list, and considering boundering colisions (offset list movement), and the fact that this index is random in real-time, the snake eventually deletes itself recursively and cries desperately to summon an IndexError until it gets tired of trying giving my almighty try-catch blocks."
 					
 		if len(r["Snake"]["Length"]) > 0:
@@ -856,9 +856,9 @@ if __name__ == "__main__":
 			default()
 			r["Error Counter"] += 1
 			if r["Error Counter"] == 1:
-				print "Obscure recursive deletion error captured 1 time."
+				print("Obscure recursive deletion error captured 1 time.")
 			else:
-				print "Obscure recursive deletion error captured {} times.".format(r["Error Counter"])
+				print("Obscure recursive deletion error captured {} times.".format(r["Error Counter"]))
 				r["End Message"] = "This error occurs in the random digestion mode for some very obscure reason. The whole snake is a python list, and the digestion part is just a random index of this list considering the snake's length. For the snake to work, it uses pop() and therefore it removes constantly the last element of the list, and considering boundering colisions (offset list movement), and the fact that this index is random in real-time, the snake eventually deletes itself recursively and cries desperately to summon an IndexError until it gets tired of trying giving my almighty try-catch blocks."
 		
 		r["Snake"]["Rects"] = [EwRect(r["Grid"].get_row_pos(r["Snake"]["Length"][sp][0]),
@@ -877,9 +877,9 @@ if __name__ == "__main__":
 					default()
 					r["Error Counter"] += 1
 					if r["Error Counter"] == 1:
-						print "Obscure recursive deletion error captured 1 time."
+						print("Obscure recursive deletion error captured 1 time.")
 					else:
-						print "Obscure recursive deletion error captured {} times.".format(r["Error Counter"])
+						print("Obscure recursive deletion error captured {} times.".format(r["Error Counter"]))
 						r["End Message"] = "This error occurs in the random digestion mode for some very obscure reason. The whole snake is a python list, and the digestion part is just a random index of this list considering the snake's length. For the snake to work, it uses pop() and therefore it removes constantly the last element of the list, and considering boundering colisions (offset list movement), and the fact that this index is random in real-time, the snake eventually deletes itself recursively and cries desperately to summon an IndexError until it gets tired of trying giving my almighty try-catch blocks."
 		
 		def respawn_food_to_snakes_head():
@@ -897,7 +897,7 @@ if __name__ == "__main__":
 					respawn_food_to_snakes_head()
 				except IndexError:
 					default()
-					print "Ok, you shouldn't get this error. The engine probably tried to 'eat food off-limits'. Just ignore this message :)."
+					print("Ok, you shouldn't get this error. The engine probably tried to 'eat food off-limits'. Just ignore this message :).")
 				r["Snake"]["Length"].append((r["Snake"]["Length"][len(r["Snake"]["Length"])-1][0], r["Snake"]["Length"][len(r["Snake"]["Length"])-1][1]-1))
 		elif r["Snake"]["Present Direction"] == SOUTH and not r["Snake"]["Digestion Part"] >= len(r["Snake"]["Length"]):
 			r["Snake"]["Next"] = [r["Snake"]["Next"][0], r["Snake"]["Next"][1]+1]
@@ -908,7 +908,7 @@ if __name__ == "__main__":
 					respawn_food_to_snakes_head()
 				except IndexError:
 					default()
-					print "Ok, you shouldn't get this error. The engine probably tried to 'eat food off-limits'. Just ignore this message :)."
+					print("Ok, you shouldn't get this error. The engine probably tried to 'eat food off-limits'. Just ignore this message :).")
 				r["Snake"]["Length"].append((r["Snake"]["Length"][len(r["Snake"]["Length"])-1][0], r["Snake"]["Length"][len(r["Snake"]["Length"])-1][1]+1))
 		elif r["Snake"]["Present Direction"] == WEST and not r["Snake"]["Digestion Part"] >= len(r["Snake"]["Length"]):
 			r["Snake"]["Next"] = [r["Snake"]["Next"][0]-1, r["Snake"]["Next"][1]]
@@ -919,7 +919,7 @@ if __name__ == "__main__":
 					respawn_food_to_snakes_head()
 				except IndexError:
 					default()
-					print "Ok, you shouldn't get this error. The engine probably tried to 'eat food off-limits'. Just ignore this message :)."
+					print("Ok, you shouldn't get this error. The engine probably tried to 'eat food off-limits'. Just ignore this message :).")
 				r["Snake"]["Length"].append((r["Snake"]["Length"][len(r["Snake"]["Length"])-1][0]-1, r["Snake"]["Length"][len(r["Snake"]["Length"])-1][1]))
 		elif r["Snake"]["Present Direction"] == EAST and not r["Snake"]["Digestion Part"] >= len(r["Snake"]["Length"]):
 			r["Snake"]["Next"] = [r["Snake"]["Next"][0]+1, r["Snake"]["Next"][1]]
@@ -930,7 +930,7 @@ if __name__ == "__main__":
 					respawn_food_to_snakes_head()
 				except IndexError:
 					default()
-					print "Ok, you shouldn't get this error. The engine probably tried to 'eat food off-limits'. Just ignore this message :)."
+					print("Ok, you shouldn't get this error. The engine probably tried to 'eat food off-limits'. Just ignore this message :).")
 				r["Snake"]["Length"].append((r["Snake"]["Length"][len(r["Snake"]["Length"])-1][0]+1, r["Snake"]["Length"][len(r["Snake"]["Length"])-1][1]))
 		# Defaults if the snake collides with itself or with the screen's boundaries.
 		[default() for spr in r["Snake"]["Rects"] if col(r["Snake"]["Rects"][0], spr) and spr != r["Snake"]["Rects"][0] and len(r["Snake"]["Length"]) > 2]
