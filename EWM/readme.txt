@@ -1,7 +1,10 @@
-I (The developer) am the composer of this track. In non-virtual life, it is actually called "Universe is Vibration" and I've composed it to the band I've used be the keyboardist of. None of them cared pretty much about my compositions, so it ended up here... SNAKE MID.
+I (The developer) am the composer of this track. 
 
-If for some reason you've enjoyed it, check out my youtube channel as a composer: youtube/user/poisonewein
+If you want to check out my work as a composer, have a look at these links:
 
-Poisone Wein is my personal musical project, and feel free to google it (Soundcloud, bandcamp, whatever).
+https://www.youtube.com/user/PoisoneWein
+https://poisonedwine.bandcamp.com/
 
-Also, feel free to use my mid if you wish, but I'd enjoy some notification: poisonewein@gmail.com / ericsonwrp@gmail.com.
+If you like them, send me an email, or msg me in my facebook page:
+
+https://www.facebook.com/PW939393

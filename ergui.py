@@ -881,9 +881,9 @@ class EwTextButton(EwObject):
 			return False
 				
 	def press(self, mouse_button=LMB1, key=None, target="rect"):
-		if EwMouseCol(mpos(), self[target])() and push_mouse(mouse_button):
+		if EwMouseCol(mpos(), self[target])() and release_mouse(mouse_button):
 			return True
-		if not EwMouseCol(mpos(), self[target])() and push_mouse(mouse_button):
+		if not EwMouseCol(mpos(), self[target])() and release_mouse(mouse_button):
 			return False
 		if key is not None:
 			if pygame.key.get_pressed()[key]:
@@ -1133,6 +1133,7 @@ class EwSimpleTextMenu(EwData):
 					elif return_method == INDEX:
 						return self["buttons"].index(b)
 		self["selection_model"].select_with_arrows(selection_delay)
+		
 	
 	def get_selected(self, return_method=STRING):
 		for b in self["buttons"]:

@@ -94,7 +94,7 @@ if __name__ == "__main__":
 	r["Font Highlight Color"] = (25, 200, 25)
 	r["Scenes"] = EwData()
 	r["Main Menu"] = EwCentralizedSimpleTextMenu(192, 64, r["FONT"], r["Font Color"], ["Start Game", "Options", "Highscore", "Exit Game"], 255, r["Font Quality"])
-	r["Modes Menu"] = EwCentralizedSimpleTextMenu(192, 64, r["FONT"], r["Font Color"], ["Classic", "Mazy", "Field", "Lengthy"], 255, r["Font Quality"])
+	r["Modes Menu"] = EwSimpleTextMenu(ctx(192), 64*5, 192, 64, r["FONT"], r["Font Color"], 255, ["Classic", "Mazy", "Field", "Lengthy"], r["Font Quality"])
 	r["Mazy Menu"] = EwCentralizedSimpleTextMenu(r["Screen Width"]//2, 64, r["FONT"], r["Font Color"], ["Float Randrange", "Float Threshold", "Wall Length"], 255, r["Font Quality"])
 	r["Digestion Menu"] = EwCentralizedSimpleTextMenu(192, 64, r["FONT"], r["Font Color"], ["Normal", "Random", "Spawn"], 255, r["Font Quality"])
 	r["Options Menu"] = EwCentralizedSimpleTextMenu(192, 32, r["FONT"], r["Font Color"], ["Resolution", "Font Quality", "Fullscreen", "Game Speed", "Game Size", "Music Volume", "Score Counter", "Game Grid", "", "", "", "Return"], 255, r["Font Quality"])
@@ -996,13 +996,13 @@ if __name__ == "__main__":
 		r["Background"].draw()
 		app.set_fps(30)
 		r["Grid"].draw()
-		
+
 		r["Main Title"].draw()
 		r["Credits"].draw()
 
 		r["Main Menu"].draw()
 		r["Main Menu"].choose(r["Font Highlight Color"])
-		if r["Main Menu"].both_press_and_select_option("Start Game", 1, r["Menu Selection Delay"]):
+		if r["Main Menu"].press(LMB1, "Start Game"):
 				app.activate("Modes Menu")
 				app.deactivate("Main Menu")
 		if r["Main Menu"].both_press_and_select_option("Options", 1, r["Menu Selection Delay"]):
@@ -1042,6 +1042,7 @@ if __name__ == "__main__":
 	r["OPT Warning 1"] = EwTextBox(ctx(r["Screen Width"] - 96), 32, "You're kidding, right?\nNo, you're not. You're trying to crash my bloody game!\nHA! You've failed (This time).\nJust keep in mind that '2' or '4' or whatever\nare really stupid and unplayable values.\nTry 8 if you want something really small and playable.", 26, r["FONT"], RED, 255, False, MAROON)
 	
 	def exec_opt():
+		
 		app.fill_background(BLACK)
 		r["Background"].draw()
 		app.set_fps(30)
@@ -1164,6 +1165,7 @@ if __name__ == "__main__":
 	r["HS Upper Text"] = EwTransformedFont(ctx(r["Screen Width"]/6), 8, r["Screen Width"]/6, r["Screen Height"]/48, r["FONT"], DEFAULT_HIGHSCORE_PATH, SILVER, 255, False, r["Font Quality"])
 	
 	def exec_hs():
+		
 		app.fill_background(BLACK)
 		r["Background"].draw()
 		r["Background Rect"].draw()
@@ -1206,6 +1208,7 @@ if __name__ == "__main__":
 	r["Modes Info 3"] = EwTextBox(ctx(r["Screen Width"] - 96), r["Main Menu"]["y"], "A 'maze' will be generated procedurally just like in Mazy Mode.\nOnce the snake reaches the food,\nit will start to grow in a tron-game-like way.\nIn order to score, you'll have to take it to the exit point.", 18, r["FONT"], RED, 255, False, MAROON)
 	
 	def exec_modes():
+		
 		app.fill_background(BLACK)
 		r["Background"].draw()
 		r["Grid"].draw()
@@ -1225,22 +1228,24 @@ if __name__ == "__main__":
 			elif r["Modes Menu"].get_selected() == "Lengthy":
 				r["Modes Info 3"].draw()
 		
-		if r["Modes Menu"].both_press_and_select_option("Classic", 1, r["Menu Selection Delay"]):
-			r["Game Mode"] = "Classic"
-			app.activate("Digestion Menu")
-			app.deactivate("Modes Menu")
-		if r["Modes Menu"].both_press_and_select_option("Mazy", 1, r["Menu Selection Delay"]):
-			r["Game Mode"] = "Mazy"
-			app.activate("Mazy CFG")
-			app.deactivate("Modes Menu")
-		if r["Modes Menu"].both_press_and_select_option("Field", 1, r["Menu Selection Delay"]):
-			r["Game Mode"] = "Field"
-			app.activate("Digestion Menu")
-			app.deactivate("Modes Menu")
-		if r["Modes Menu"].both_press_and_select_option("Lengthy", 1, r["Menu Selection Delay"]):
-			r["Game Mode"] = "Lengthy"
-			app.activate("Mazy CFG")
-			app.deactivate("Modes Menu")
+		if tml(r["Delay Between Screens"]):
+			if r["Modes Menu"].both_press_and_select_option("Classic", 1, r["Menu Selection Delay"]):
+				r["Game Mode"] = "Classic"
+				app.activate("Digestion Menu")
+				app.deactivate("Modes Menu")
+			if r["Modes Menu"].both_press_and_select_option("Mazy", 1, r["Menu Selection Delay"]):
+				r["Game Mode"] = "Mazy"
+				app.activate("Mazy CFG")
+				app.deactivate("Modes Menu")
+			if r["Modes Menu"].both_press_and_select_option("Field", 1, r["Menu Selection Delay"]):
+				r["Game Mode"] = "Field"
+				app.activate("Digestion Menu")
+				app.deactivate("Modes Menu")
+			if r["Modes Menu"].both_press_and_select_option("Lengthy", 1, r["Menu Selection Delay"]):
+				r["Game Mode"] = "Lengthy"
+				app.activate("Mazy CFG")
+				app.deactivate("Modes Menu")
+				
 		app.watch_for_exit()
 		if press_escape():
 			app.activate("Main Menu")
@@ -1264,6 +1269,7 @@ if __name__ == "__main__":
 	r["Mazy Info 2"] = EwTextBox(ctx(r["Screen Width"] - 96), r["Main Menu"]["y"], "This integer defines the number of bricks in each wall.\nThe greater the value, the lesser the walls \n(Since the walls are only drawn by steps of its own length).", 18, r["FONT"], RED, 255, False, MAROON)
 	
 	def exec_mazy():
+		
 		app.fill_background(BLACK)
 		r["Background"].draw()
 		r["Grid"].draw()
@@ -1326,6 +1332,7 @@ if __name__ == "__main__":
 	r["Dig 2"] = EwTransformedFont(ctx(180), r["Screen Height"]-32, 180, 32, r["FONT"], "SLITHER!", RED, 255, False, r["Font Quality"])
 	
 	def exec_digestion():
+		
 		app.fill_background(BLACK)
 		r["Background"].draw()
 		r["Grid"].draw()
@@ -1434,6 +1441,7 @@ if __name__ == "__main__":
 	r["Pause 4"] = EwTransformedFont(ctx(r["Screen Width"]/2), r["Screen Height"]-32, r["Screen Width"]/2, 32, r["FONT"], "Return to your Windows or Linux or Mac OS or Whatever.", SILVER, 255, False, r["Font Quality"])
 	
 	def exec_pause():
+
 		app.fill_background(BLACK)
 		r["Background"].draw()
 		app.set_fps(30)
